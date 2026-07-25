@@ -224,7 +224,9 @@ img {
 }
 
 .logo-wrapper {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    gap: 15px;
     transform-style: preserve-3d;
     will-change: transform;
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
@@ -232,7 +234,7 @@ img {
 }
 
 .logo-img {
-    height: 48px;
+    height: 56px;
     width: auto;
     display: block;
     filter: invert(1);
@@ -240,8 +242,21 @@ img {
     transition: var(--transition-fast);
 }
 
+.logo-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    transition: var(--transition-fast);
+}
+
 .logo-wrapper:hover .logo-img {
     filter: invert(79%) sepia(21%) saturate(934%) hue-rotate(349deg) brightness(95%) contrast(85%);
+}
+
+.logo-wrapper:hover .logo-text {
+    color: var(--color-accent-gold);
 }
 
 .nav-list {
@@ -852,12 +867,14 @@ img {
 }
 
 .footer-logo-wrapper {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    gap: 15px;
     margin-bottom: 15px;
 }
 
 .footer-logo-img {
-    height: 52px;
+    height: 60px;
     width: auto;
     display: block;
     filter: invert(1);
@@ -865,8 +882,21 @@ img {
     transition: var(--transition-fast);
 }
 
+.footer-logo-text {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    transition: var(--transition-fast);
+}
+
 .footer-logo-wrapper:hover .footer-logo-img {
     filter: invert(79%) sepia(21%) saturate(934%) hue-rotate(349deg) brightness(95%) contrast(85%);
+}
+
+.footer-logo-wrapper:hover .footer-logo-text {
+    color: var(--color-accent-gold);
 }
 
 .footer-tagline {
