@@ -134,4 +134,34 @@ document.addEventListener('DOMContentLoaded', () => {
             revealObserver.observe(target);
         }
     });
+
+    // ==========================================================================
+    // LOGO 3D TILT EFFECT (DESKTOP ONLY)
+    // ==========================================================================
+    const logoContainer = document.getElementById('logo-container');
+    if (logoContainer && !window.matchMedia("(pointer: coarse)").matches) {
+        logoContainer.addEventListener('mousemove', (e) => {
+            const rect = logoContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const xc = rect.width / 2;
+            const yc = rect.height / 2;
+            
+            // Calculate tilt angle (-8 to 8 degrees for subtle luxury effect)
+            const angleX = (yc - y) / 3;
+            const angleY = (x - xc) / 3;
+            
+            logoContainer.style.transform = `perspective(500px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale(1.05)`;
+        });
+        
+        logoContainer.addEventListener('mouseleave', () => {
+            logoContainer.style.transform = 'perspective(500px) rotateX(0deg) rotateY(0deg) scale(1)';
+            logoContainer.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+        });
+        
+        logoContainer.addEventListener('mouseenter', () => {
+            logoContainer.style.transition = 'transform 0.1s ease';
+        });
+    }
 });
